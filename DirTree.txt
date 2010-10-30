@@ -1,10 +1,18 @@
 .
 |-- biojsonutils
 |   |-- ebi
+|   |   `-- __init__.py
+|   |-- __init__.py
 |   |-- kegg
+|   |   `-- __init__.py
 |   |-- ncbi
+|   |   `-- __init__.py
 |   `-- webserver.py
 |-- DirTree.txt
+|-- doc
+|   `-- INFO
+|-- example
+|   `-- index_demo.html
 |-- LICENSE
 |-- MANIFEST.in
 |-- README.rdoc
@@ -12,4 +20,4 @@
 |-- test
 `-- TODO
 
-5 directories, 7 files
+7 directories, 13 files
