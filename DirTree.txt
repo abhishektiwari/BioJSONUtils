@@ -1,0 +1,15 @@
+.
+|-- biojsonutils
+|   |-- ebi
+|   |-- kegg
+|   |-- ncbi
+|   `-- webserver.py
+|-- DirTree.txt
+|-- LICENSE
+|-- MANIFEST.in
+|-- README.rdoc
+|-- setup.py
+|-- test
+`-- TODO
+
+5 directories, 7 files

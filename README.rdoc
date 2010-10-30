@@ -1,0 +1,23 @@
+== BioJSONUtils
+
+JSON Endpoint for the various Bio web services such as NCBI, EBI, KEGG etc
+
+== Dependencies
+
+* Biopython
+* Twisted
+
+
+== Help & Documentation
+For more information about installing, running and configuring BioJSONUtils
+including a list of known issues and troubleshooting information, 
+refer to: http://wiki.github.com/abhishektiwari/BioJSONUtils/
+
+== Directory Hierarchy
+See the DirTree.txt file
+
+== Authors and copyright
+© 2010 Abhishek Tiwari (abhishek@abhishek-tiwari.com)
+
+The software included in this package is copyrighted freeware
+distributed under the terms and conditions as specified in file LICENSE.
