@@ -23,7 +23,7 @@ config = {
 	'author_email': 'abhishek@abhishek-tiwari.com',
 	'version': '0.1',
 	'install_requires': ['twisted','biopython'],
-	'packages': ['biojsonutils',biojsonutils],
+	'packages': ['biojsonutils'],
 	'scripts': [],
 }
 

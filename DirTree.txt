@@ -1,13 +1,16 @@
 .
 |-- biojsonutils
 |   |-- ebi
+|   |   |-- ebi.py
 |   |   `-- __init__.py
 |   |-- __init__.py
+|   |-- jsonendpoint.py
 |   |-- kegg
-|   |   `-- __init__.py
-|   |-- ncbi
-|   |   `-- __init__.py
-|   `-- webserver.py
+|   |   |-- __init__.py
+|   |   `-- kegg.py
+|   `-- ncbi
+|       |-- __init__.py
+|       `-- ncbi.py
 |-- DirTree.txt
 |-- doc
 |   `-- INFO
@@ -16,8 +19,13 @@
 |-- LICENSE
 |-- MANIFEST.in
 |-- README.rdoc
+|-- run.py
 |-- setup.py
 |-- test
+|   |-- test_ebi.py
+|   |-- test_jsonendpoint.py
+|   |-- test_kegg.py
+|   `-- test_ncbi.py
 `-- TODO
 
-7 directories, 13 files
+7 directories, 21 files
