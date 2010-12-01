@@ -1,0 +1,55 @@
+
+<html>
+	<head>
+		<title>
+			Entrez-AJAX: PubMed Search Example
+		</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+		<script type="text/javascript" src="http://entrezajax.appspot.com/static/ext/syntaxhighlighter/scripts/shCore.js"></script>
+		<script type="text/javascript" src="http://entrezajax.appspot.com/static/ext/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+		<link href="http://entrezajax.appspot.com/static/styles/styles.css" rel="stylesheet" type="text/css" />
+		<link href="http://entrezajax.appspot.com/static/ext/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="http://entrezajax.appspot.com/static/ext/syntaxhighlighter/styles/shThemeDefault.css" type="text/css" rel="stylesheet" />
+
+		<script>
+
+var search_term = "Cortisol";
+
+$(document).ready(function() {
+	$.getJSON('http://localhost:5000/ncbi/star.js?callback=?', function(data) {
+		alert('json: ' + data.eGQueryResult[0].MenuName + ' ... ' + data.eGQueryResult[0].Count);
+	});
+});
+
+		</script>
+	</head>
+	<body>
+
+		<h1>Efetch Example</h1>
+		<p>
+		</p>
+		<p>
+			<form method="GET" action="?">
+				Search for <input type="text" name="term" value="Cortisol"> <input type="submit" value=" Go ">
+			</form>
+		</p>
+
+
+		<div id="result">
+			Contacting NCBI Entrez ...  <img src="images/loading.gif">
+		</div>
+
+		<h2>Source Code</h2>
+		<div id="sourcecode" style="width: 1024px;">
+			<script type="syntaxhighlighter" class="brush: js; gutter: true;"><![CDATA[
+
+
+]]></script>
+		</div>
+		<script type="text/javascript">
+			SyntaxHighlighter.all()
+		</script>
+	</body>
+</html>
+

@@ -22,7 +22,7 @@ python run.py 8000
 
 """
 
-from biojsonutils import jsonendpoint
+from biojsonutils import webserver
 import sys
 import getopt
 
@@ -66,7 +66,7 @@ def main(argv = None):
 			try:
 				if cargument >= 8000 & cargument < 9000:
 					print argument
-					twi_instance = jsonendpoint.StartServer(cargument)
+					twi_instance = webserver.StartServer(cargument)
 					twi_instance.start_server()
 			except Usage, err:
 				print "Unexpected error:", sys.exc_info()[0]

@@ -9,7 +9,7 @@
 # distributed under the terms and conditions as specified in file LICENSE.
 
 from Bio import Entrez
-import json
+import simplejson as json
 
 Entrez.email = "Sandbox sandbox@gmail.com"
 
