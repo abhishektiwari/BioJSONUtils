@@ -3,30 +3,49 @@
 
 # Copyright © 2010 Abhishek Tiwari (abhishek@abhishek-tiwari.com)
 #
-# This file is part of ToyProjects.
+# This file is part of BioJSONUtils.
 #
-# Files included in this package ToyProjects are copyrighted freeware
+# Files included in this package BioJSONUtils are copyrighted freeware
 # distributed under the terms and conditions as specified in file LICENSE.
 
 from Bio import Entrez
-import simplejson as json
+from flask import json
 
-Entrez.email = "Sandbox sandbox@gmail.com"
+ENTREZ_TOOL  = "MolSeekSandbox"
 
-def EGQuery(keyword):
+class EUtils:
 	"""
-	this function takes the keyword and search in NCBI using eUtils
+	NCBI Entrez web-services handling
 	"""
+
+	@classmethod
+	def call_and_cache_result(eclass, efunction, callback_id, email_id, **options):
+		handle = efunction(tool=ENTREZ_TOOL, email=email_id, **options)
+            	record = Entrez.read(handle)
+		return json_response(record, callback_id)
+
+	@classmethod
+	def egquery(eclass, callback_id, email_id, **options):
+		return eclass.call_and_cache_result(Entrez.egquery, callback_id, email_id, **options)
+
+	@classmethod
+	def esearch(eclass, callback_id, email_id, **options):
+		return eclass.call_and_cache_result(Entrez.esearch, callback_id, email_id, **options)
+
+def json_response(record, callback_id):
+	"""
+	Helper to handle JSON/JSONP calls
+	"""
+	if callback_id == None:
+		return json.dumps(record)
+	else:
+		data = json.dumps(record)
+		response = "%s(%s)" % (callback_id, data)
+		return response
+
+
 	
-	handle = Entrez.egquery(term = keyword)
-	record = Entrez.read(handle)
-	return json.dumps(record)
 
-def ESearch(keyword, database):
-	"""
-	this function takes the keyword and search in a specified NCBI 
-	database using eUtils
-	"""
-	handle = Entrez.esearch(db = database, term = keyword)
-	record = Entrez.read(handle)
-	return json.dumps(record)
+	
+
+

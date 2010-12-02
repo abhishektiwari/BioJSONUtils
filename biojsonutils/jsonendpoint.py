@@ -7,8 +7,10 @@
 #
 # Files included in this package BioJSONUtils are copyrighted freeware
 # distributed under the terms and conditions as specified in file LICENSE.
-from flask import Flask
-from ncbi import ncbi
+from flask import Flask, request
+from ncbi.ncbi import EUtils
+
+ENTREZ_EMAIL = "sandbox@gmail.com"
 
 app = Flask(__name__)
 
@@ -37,12 +39,29 @@ def index():
 		"""
 
 
-@app.route('/ncbi/<keyword>.js')
-def show_user_profile(keyword):
+@app.route('/ncbi/<keyword>.js', methods=['GET'])
+def ncbi_egquery(keyword):
 	"""
 	Search with NCBI EGQuery and return the JSON results
 	"""
-	return ncbi.EGQuery(keyword) 
+	if request.args.has_key('callback'):
+		kwargs = {"term": keyword}
+		return EUtils.egquery(request.args['callback'], request.args['email'], **kwargs)
+	else:
+		kwargs = {"term": keyword}
+		return EUtils.egquery(None, ENTREZ_EMAIL, **kwargs)
+
+@app.route('/ncbi/esearch/<keyword>.js', methods=['GET'])
+def ncbi_esearch(keyword):
+	"""
+	Search with NCBI EGQuery and return the JSON results
+	"""
+	if request.args.has_key('callback'):
+		kwargs = {"term": keyword, "db": request.args['db']}
+		return EUtils.esearch(request.args['callback'], request.args['email'], **kwargs)
+	else:
+		kwargs = {"term": keyword, "db": request.args['db']}
+		return EUtils.esearch(None, ENTREZ_EMAIL, **kwargs)
 
 if __name__ == '__main__':
 	app.run()

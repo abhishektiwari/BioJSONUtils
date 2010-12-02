@@ -8,9 +8,15 @@
 |   |-- kegg
 |   |   |-- __init__.py
 |   |   `-- kegg.py
-|   `-- ncbi
-|       |-- __init__.py
-|       `-- ncbi.py
+|   |-- ncbi
+|   |   |-- __init__.py
+|   |   `-- ncbi.py
+|   |-- static
+|   |   |-- ajax_get.html
+|   |   |-- ajax.html
+|   |   `-- images
+|   |       `-- loading.gif
+|   `-- webserver.py
 |-- DirTree.txt
 |-- doc
 |   `-- INFO
@@ -28,4 +34,4 @@
 |   `-- test_ncbi.py
 `-- TODO
 
-7 directories, 21 files
+9 directories, 25 files
