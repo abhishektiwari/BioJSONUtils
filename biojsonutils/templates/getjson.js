@@ -5,7 +5,7 @@ search_term =
 $(document).ready(function() {	
 	$.getJSON(qurl, args, function(data) {
 		var html_result = ''
-		html_result += "<h2>Matching Results from MolSeek:</h2></br>"
+		html_result += "<h3>Matching Results from MolSeek:</h3></br>"
 		html_result += data.eGQueryResult[0].Count + '  ... ' + data.eGQueryResult[0].MenuName + ' entries' + '</br>'
 		+  data.eGQueryResult[1].Count + '  ... ' + data.eGQueryResult[1].MenuName + ' entries' + '</br>'
 		+  data.eGQueryResult[3].Count + '  ... ' + data.eGQueryResult[3].MenuName + ' entries' + '</br>'
@@ -17,3 +17,4 @@ $(document).ready(function() {
 		$('#result').html(html_result);
 	});
 });
+
