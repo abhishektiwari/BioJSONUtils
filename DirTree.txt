@@ -1,22 +1,62 @@
 .
 |-- biojsonutils
-|   |-- ebi
-|   |   |-- ebi.py
+|   |-- cache
+|   |   |-- cachefunctions.py
 |   |   `-- __init__.py
 |   |-- __init__.py
-|   |-- jsonendpoint.py
-|   |-- kegg
-|   |   |-- __init__.py
-|   |   `-- kegg.py
-|   |-- ncbi
-|   |   |-- __init__.py
-|   |   `-- ncbi.py
+|   |-- startapplication.py
+|   |-- startwebserver.py
 |   |-- static
 |   |   |-- ajax_get.html
 |   |   |-- ajax.html
-|   |   `-- images
-|   |       `-- loading.gif
-|   `-- webserver.py
+|   |   |-- css
+|   |   |   |-- global-forms.css
+|   |   |   |-- ie6.css
+|   |   |   |-- ie.css
+|   |   |   |-- main.css
+|   |   |   `-- reset.css
+|   |   |-- images
+|   |   |   |-- avatar.png
+|   |   |   |-- favicon.ico
+|   |   |   |-- loading1.gif
+|   |   |   |-- loading3.gif
+|   |   |   |-- loading4.gif
+|   |   |   |-- loading5.gif
+|   |   |   |-- loading.gif
+|   |   |   `-- molseek.png
+|   |   |-- js
+|   |   |   |-- html5.js
+|   |   |   `-- IE8.js
+|   |   `-- syntax
+|   |       |-- scripts
+|   |       |   |-- clipboard.swf
+|   |       |   |-- shBrushJScript.js
+|   |       |   `-- shCore.js
+|   |       `-- styles
+|   |           |-- shCore.css
+|   |           `-- shThemeDefault.css
+|   |-- templates
+|   |   |-- examples.html
+|   |   |-- getjson.html
+|   |   |-- getjson.js
+|   |   |-- index.html
+|   |   `-- layout.html
+|   |-- views
+|   |   |-- examples.py
+|   |   |-- __init__.py
+|   |   |-- jsonendpoint.py
+|   |   `-- main.py
+|   `-- webservices
+|       |-- ebi
+|       |   |-- ebi.py
+|       |   `-- __init__.py
+|       |-- __init__.py
+|       |-- kegg
+|       |   |-- __init__.py
+|       |   `-- kegg.py
+|       `-- ncbi
+|           |-- eutils.py
+|           `-- __init__.py
 |-- DirTree.txt
 |-- doc
 |   `-- INFO
@@ -34,4 +74,4 @@
 |   `-- test_ncbi.py
 `-- TODO
 
-9 directories, 25 files
+18 directories, 56 files

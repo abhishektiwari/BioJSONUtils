@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block jscript %}
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('main.static', filename='syntax/scripts/shCore.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('main.static', filename='syntax/scripts/shBrushJScript.js') }}"></script>
+	<link href="{{ url_for('main.static', filename='syntax/styles/shCore.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ url_for('main.static', filename='syntax/styles/shThemeDefault.css') }}" type="text/css" rel="stylesheet" />
+
+
+
+{% endblock %}
+
+{% block cscript %}
+
+{% include "getjson.js" %}
+
+{% endblock %}
+
+{% block topnav %}
+	<li><a href="{{ url_for('main.index') }}">home</a></li>
+	<li class="active"><a href="{{ url_for('examples.index') }}">examples</a></li>
+	<li><a href="https://github.com/abhishektiwari/BioJSONUtils">code</a></li>
+
+{% endblock %}
+
+{% block featured %}
+	<aside id="featured" class="body">
+		<h2>Ajax Search Example in Action using jQuery.getJSON()</h2>
+	</aside>
+{% endblock %}
+
+
+{% block content %}	
+	<section id="content" class="body">
+		<p>
+			<form method="POST" action="." >
+				Search for {{ form.keyword.label }} {{ form.keyword }} <input type="submit" value=" Go ">
+			</form>
+		</p>
+
+
+		<div id="result">
+			<h2>Loading results ... </h2> <img src="{{ url_for('main.static', filename='images/loading.gif') }}">
+		</div>	
+	</section>	
+{% endblock %}	
+
+{% block contentextra %}
+	<section id="content" class="body">
+	<h2>Source Code</h2>
+		<div id="sourcecode" style="width: 1024px;">
+		<script type="syntaxhighlighter" class="brush: js; gutter: true;"><![CDATA[
+		{% include "getjson.js" %}
+		]]></script>
+		</div>
+		<script type="text/javascript">
+			SyntaxHighlighter.all()
+		</script>
+	</section>
+{% endblock %}		
+

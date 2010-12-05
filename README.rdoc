@@ -5,8 +5,9 @@ JSON Endpoint for the various Bio web services such as NCBI, EBI, KEGG etc
 == Dependencies
 
 * Biopython
-* Flask (http://flask.pocoo.org/)
+* Flask (http://flask.pocoo.org/), Flask-WTF extension
 * Tornado (http://www.tornadoweb.org/)
+* Memcached for Caching (http://memcached.org/)
 
 
 == Help & Documentation

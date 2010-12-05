@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block topnav %}
+	<li class="active"><a href="{{ url_for('main.index') }}">home</a></li>
+	<li><a href="{{ url_for('examples.index') }}">examples</a></li>
+	<li><a href="https://github.com/abhishektiwari/BioJSONUtils">code</a></li>
+
+{% endblock %}
+
+{% block featured %}
+	<aside id="featured" class="body">
+	<article>
+		<figure>
+			<img src="{{ url_for('main.static', filename='images/molseek.png') }}" alt="MolSeek">
+		</figure>
+		<hgroup>
+			<h2>Open REST API</h2>
+			<h3><a href="https://github.com/abhishektiwari/BioJSONUtils">JSON Gateway for Bio Webservices!</a></h3>
+		</hgroup>
+		<p>For a simple Demo, Try <a href="/ncbi/cortisol.js" rel="external">Cortisol</a> and <a href="/ncbi/star.js" rel="external">StAR</a>!</p>
+		
+	</article>
+	</aside>
+{% endblock %}
+
+{% block content %}	
+	<section id="content" class="body">
+		<ol id="posts-list" class="hfeed">
+			<li><article class="hentry">	
+				<header>
+					<h2 class="entry-title"><a href="#" rel="bookmark" title="Features">Features</a></h2>
+				</header>
+				
+				
+				
+				<div class="entry-content">
+					<p>Secure RESTful request dispatching,  Parallel Execution of Webservices, Powerful Caching using <a href="http://memcached.org/">Memcached</a>.</p>
+				</div>
+			</article></li>
+			
+			<li><article class="hentry">	
+				<header>
+					<h2 class="entry-title"><a href="#" rel="bookmark" title="Powered by">Powered by</a></h2>
+				</header>
+				
+			
+				
+				<div class="entry-content">
+					<p>BioJSONUtils is developed using <a href="http://flask.pocoo.org">Flask</a> microframework for Python which is based on Werkzeug and  Jinja 2 templating.</p>
+				</div><!-- /.entry-content -->
+			</article></li>
+			
+			<li><article class="hentry">	
+				<header>
+					<h2 class="entry-title"><a href="#" rel="bookmark" title="GAE">Google App engine Ready</a></h2>
+				</header>
+				
+				<div class="entry-content">
+					<p>Run BioJSONUtils on Python Runtime Environment of  <a href="http://code.google.com/appengine/docs/python/">Google App Engine</a>.</p>
+				</div>
+			</article></li>
+		</ol>
+	</section>	
+{% endblock %}	
+
+{% block extra %}
+	<section id="extras" class="body">
+		<div class="linkroll">
+			<h2>Sample use cases</h2>
+			<ul>
+				<li><a href="#" rel="external">MolSeek Cross-Platform Browser Plugins</a></li>
+				<li><a href="#" rel="external">Mobile Applications using HTML5, jQuery and CSS3</a></li>
+				<li><a href="#" rel="external">Data Mashups and Data Mapping</a></li>
+
+
+			</ul>
+		</div><!-- /.linkroll -->
+		
+		<div class="social">
+			<h2>Supported Webservices</h2>
+			<ul>
+				<li><a href="http://www.ncbi.nlm.nih.gov" rel="external">NCBI</a></li>
+				<li><a href="http://www.ebi.ac.uk" rel="external">EBI</a></li>
+				<li><a href="http://www.genome.jp/kegg/" rel="external">KEGG</a></li>
+				<li><a href="http://www.reactome.org" rel="external">Reactome</a></li>
+				<li><a href="http://www.wikipathways.org" rel="external">WikiPathways</a></li>
+			</ul>
+		</div>
+	</section>
+{% endblock %}
+

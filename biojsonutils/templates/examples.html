@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block topnav %}
+	<li><a href="{{ url_for('main.index') }}">home</a></li>
+	<li class="active"><a href="{{ url_for('examples.index') }}">examples</a></li>
+	<li><a href="https://github.com/abhishektiwari/BioJSONUtils">code</a></li>
+
+{% endblock %}
+
+{% block featured %}
+	<aside id="featured" class="body">
+		<h2>Examples</h2>
+	</aside>
+{% endblock %}
+
+
+{% block content %}	
+	<section id="content" class="body">
+			<ul>
+				<li><a href="{{ url_for('examples.getjson') }}" rel="external">Ajax Search Example in Action using jQuery.getJSON()</a></li>
+				<li><a href="#" rel="external">Ajax Search Example in Action using jQuery.ajax()</a></li>
+				<li><a href="#" rel="external">Data Mashups and Data Mapping</a></li>
+
+
+			</ul> 
+
+	</section>	
+{% endblock %}	

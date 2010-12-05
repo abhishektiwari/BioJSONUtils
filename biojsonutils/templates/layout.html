@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>BioJSONUtils - {{ subtitle }}</title>
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" href="{{ url_for('main.static', filename='css/main.css') }}" type="text/css">
+
+	<!--[if IE]>
+		<script src="{{ url_for('main.static', filename='js/html5.js') }}"></script><![endif]-->
+	
+	<!--[if lte IE 7]>
+		<link rel="stylesheet" type="text/css" media="all" href="{{ url_for('main.static', filename='css/ie.css') }}"/>
+		<script src="{{ url_for('main.static', filename='js/IE8.js') }}" type="text/javascript"></script><![endif]-->
+		
+	<!--[if lt IE 7]>
+		<link rel="stylesheet" type="text/css" media="all" href="{{ url_for('main.static', filename='css/ie6.css') }}"/><![endif]-->
+
+	{% block jscript %}{% endblock %}
+
+	<script>
+		{% block cscript %}{% endblock %}
+	</script>
+
+</head>
+
+<body id="index" class="home">	
+	<header id="banner" class="body">
+		<h1><a href="{{ url_for('main.index') }}">BioJSONUtils</a></h1>
+		<nav>
+		<ul>
+			{% block topnav %}{% endblock %}
+		</ul>
+		</nav>
+	</header>
+	
+	
+	{% block featured %}{% endblock %}
+	
+
+	{% block content %}{% endblock %}
+
+	{% block contentextra %}{% endblock %}
+	
+	
+	{% block extra %}{% endblock %}
+
+
+	<footer id="contentinfo" class="body">
+		<address id="about" class="vcard body">
+			<span class="primary">
+				<strong><a href="http://molseek.net" class="fn url">MolSeek</a></strong>
+				<span class="role">Seek, Share and Search</span>
+			</span>
+		
+			<img src="{{ url_for('main.static', filename='images/avatar.png') }}" alt="MolSeek Logo" class="photo">
+		
+			<span class="bio">MolSeek is a web-based marketplace and community for searching, seeking, sharing and selling of biological and chemical molecules. MolSeek combines current biological knowledge and smart mapping technology to offer a superior integrated search platform for the scientific community with extension to scientific vendors and publishers in the near future.</span>
+		</address>
+		
+		<p>© 2010 <a href="http://molseek.net">MolSeek</a>. HTML5 Template Credits <a href="http://smashingmagazine.com/">Smashing Magazine</a></p>
+	</footer>
+</body>
