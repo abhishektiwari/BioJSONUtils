@@ -21,17 +21,15 @@ class EUtils:
 	
 	@classmethod
 	def cache_key_generator(eclass, efunction, **options):
-		keydict = {'interface':efunction}
+		keydict = {'calltype':efunction}
 		keydict.update(options)
 		keys = sorted(keydict.keys())
 		return "&".join(["%s=%s" % (k, keydict[k]) for k in keys])	
 	
 	@classmethod
-	def call_and_cache_result(eclass, efunction, callback_id, email_id, **options):
-		cache_key = eclass.cache_key_generator(efunction, **options)
+	def call_and_cache_result(eclass, efunction, sfunction, callback_id, email_id, **options):
+		cache_key = eclass.cache_key_generator(sfunction, **options)
 		cached_value = get_from_cache(cache_key)
-		print "key", cache_key
-		print "value", cached_value 
 		if cached_value is None:
 			handle = efunction(tool=ENTREZ_TOOL, email=email_id, **options)
 			record = Entrez.read(handle)
@@ -44,11 +42,11 @@ class EUtils:
 
 	@classmethod
 	def egquery(eclass, callback_id, email_id, **options):
-		return eclass.call_and_cache_result(Entrez.egquery, callback_id, email_id, **options)
+		return eclass.call_and_cache_result(Entrez.egquery, 'Entrez.egquery', callback_id, email_id, **options)
 
 	@classmethod
 	def esearch(eclass, callback_id, email_id, **options):
-		return eclass.call_and_cache_result(Entrez.esearch, callback_id, email_id, **options)
+		return eclass.call_and_cache_result(Entrez.esearch, 'Entrez.esearch', callback_id, email_id, **options)
 
 def json_response(json_record, callback_id):
 	"""

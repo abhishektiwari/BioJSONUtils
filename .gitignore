@@ -1,0 +1,3 @@
+# Lines starting with '#' are considered comments.
+# Ignore any file with extension .pyc or .pyo
+*.py[co]
