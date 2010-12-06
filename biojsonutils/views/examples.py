@@ -16,7 +16,7 @@ from wtforms import Form, TextField, validators
 examples = Module(__name__)
 
 class AjaxForm(Form):
-	keyword = TextField('Keyword:', [validators.Length(min=4, max=25)])
+	keyword = TextField('Keyword:', [validators.Length(min=4, max=30)])
 
 @examples.route('/')
 def index():
@@ -29,11 +29,11 @@ def getjson():
 	if request.method == 'POST' and form.validate():
 		keyterm = form.keyword.data
 		return render_template('getjson.html', subtitle = 'Examples-Using jQuery.getJSON', form = form, keyword = keyterm)
-	elif request.method == 'POST' and not form.validate():
-		form = AjaxForm(keyword = 'star')
-		keyterm = form.keyword.data
-		return render_template('getjson.html', subtitle = 'Examples-Using jQuery.getJSON', form = form, keyword = keyterm)
 	else:
 		form = AjaxForm(keyword = 'star')
 		keyterm = form.keyword.data
 		return render_template('getjson.html', subtitle = 'Examples-Using jQuery.getJSON', form = form, keyword = keyterm)
+
+@examples.route('/selectedsearch/', methods=['GET', 'POST'])
+def selectedsearch():
+		return render_template('selectedsearch.html', subtitle = 'Examples-Using jQuery/UI')

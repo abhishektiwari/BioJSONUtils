@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block jscript %}
+
+	<script type="text/javascript" src="{{ url_for('main.static', filename='js/jquery-1.4.2.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('main.static', filename='js/jquery-ui-1.8.6.custom.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('main.static', filename='syntax/scripts/shCore.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('main.static', filename='syntax/scripts/shBrushJScript.js') }}"></script>
+	<link href="{{ url_for('main.static', filename='syntax/styles/shCore.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ url_for('main.static', filename='syntax/styles/shThemeDefault.css') }}" type="text/css" rel="stylesheet" />
+
+
+
+{% endblock %}
+
+{% block cscript %}
+
+{% include "js/selectedsearch.js" %}
+
+{% endblock %}
+
+{% block topnav %}
+	<li><a href="{{ url_for('main.index') }}">home</a></li>
+	<li class="active"><a href="{{ url_for('examples.index') }}">examples</a></li>
+	<li><a href="https://github.com/abhishektiwari/BioJSONUtils">code</a></li>
+
+{% endblock %}
+
+{% block featured %}
+	<aside id="featured" class="body">
+		<h2>Searching selected keyword using jQuery/jQuery UI</h2>
+	</aside>
+{% endblock %}
+
+
+{% block content %}	
+	<section id="content" class="body">
+		<h2>Try to select any keyword using the mouse</h2>
+		<div align="justify">
+			 Nyctohemeral variations in plasma levels of cortisol, dehydroepiandrosterone (DHEA) and its sulfate (DHEA-S), testosterone and ACTH were studied in seven CDC2 and six CDC4 male patients and fourteen healthy subjects in order to detect modifications in hormone secretions occurring in HIV infection at various stages of the disease. METHODS: Plasma hormone levels were all determined by radioimmunoassay. Blood samples were collected every 4 hours from 08.30 a.m. to 08.30 a.m. the next morning. The cosinor method was used in order to detect the existence of a 24-hour rhythm and Student's t-test was applied to compare 24-hour mean hormone levels (mesors) and rhythm amplitudes. RESULTS: A significant 24-hour rhythm was found for each of the five hormones in the three groups of subjects studied. The secretory pattern of each hormone was very similar from one group to another and no apparent difference appeared in the shapes of the curves found for the various groups of subjects studied. Compared with normal subjects, mesors were significantly higher for cortisol (p less than 0.001) and lower for DHEA, DHEA-S and ACTH (p less than 0.001 for each hormone) in all HIV-infected patients. Twenty-four hour adjusted mean testosterone levels were similar in controls and CDC2 patients and significantly decreased (p less than 0.05) in the CDC4 patient group. CONCLUSION: Analysis of the circadian rhythms of plasma hormone levels clearly indicated an altered adrenal hormonal state in all HIV-infected male patients, even during the asymptomatic period of the infection. During this period, although patients already had elevated plasma cortisol and lowered adrenal androgen levels, no hypogonadism was found, according to plasma testosterone levels.
+		</div><br>
+
+
+		<div id="result">
+			
+		</div>	
+	</section>	
+{% endblock %}	
+
+{% block contentextra %}
+	<section id="content" class="body">
+	<h2>Source Code</h2>
+		<div id="sourcecode" >
+		<script type="syntaxhighlighter" class="brush: js; gutter: true;"><![CDATA[
+		{% include "js/selectedsearch.js" %}
+		]]></script>
+		</div>
+		<script type="text/javascript">
+			SyntaxHighlighter.all()
+		</script>
+	</section>
+{% endblock %}		
+
