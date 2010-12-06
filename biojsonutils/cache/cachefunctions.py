@@ -12,25 +12,21 @@
 
 
 # Using Simple cache keeps the item stored in the memory of the Python interpreter
-# from werkzeug.contrib.cache import SimpleCache
-# cache = SimpleCache()
+from werkzeug.contrib.cache import SimpleCache
+cache = SimpleCache()
 
 # Using App Engine, you can connect to the App Engine memcache server easily
 # from werkzeug.contrib.cache import GAEMemcachedCache
 # cache = GAEMemcachedCache()
 
 # Using memcached server, you will need supported memcache modules installed
-from werkzeug.contrib.cache import MemcachedCache
-cache = MemcachedCache(['127.0.0.1:11211'])
+#from werkzeug.contrib.cache import MemcachedCache
+#cache = MemcachedCache(['127.0.0.1:11211'])
 
 
-def get_my_item(keyword):
-	rv = cache.get(keyword)
-	if rv is None:
-		rv = calculate_value()
-		cache.set(keyword, rv, timeout=5 * 60)
-	return rv
+def get_from_cache(cache_key):
+	cached_value = cache.get(cache_key)
+	return cached_value
 
-def set_my_item(keyword):
-	rv = calculate_value()
-	cache.set(keyword, rv, timeout=5 * 60)
+def set_the_cache(cache_key, cache_value):
+	cache.set(cache_key, cache_value, timeout=5 * 60)
