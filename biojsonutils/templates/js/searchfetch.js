@@ -1,6 +1,6 @@
 var search_term = "{{ keyword }}";
-args = {'email' : 'abhishek.twr@gmail.com', 'term' : search_term};
-var qurl  = "{{ url_for('jsonendpoint.ncbi_egquery') }}" + "?callback=?"
+args = {'email' : 'abhishek.twr@gmail.com', 'term' : search_term, 'db' : 'protein'};
+var qurl  = "{{ url_for('jsonendpoint.ncbi_esearch') }}" + "?callback=?"
 search_term = 
 $(document).ready(function() {	
 	$.getJSON(qurl, args, function(data) {

@@ -1,15 +1,13 @@
-var search_term = "{{ keyword }}";
-args = {'email' : 'abhishek.twr@gmail.com', 'db' : 'protein'};
-
+var search_term = "";
 
 $(document).ready(function() {	 
 	$('div').mouseup(function() {
 		search_term = getSelectedText()
-
+		args = {'email' : 'abhishek.twr@gmail.com', 'term' : search_term};
 		var loading_html = '<h2>Loading results ... </h2> <img src="{{ url_for('main.static', filename='images/loading.gif') }}">'
 		$('#result').html(loading_html);
 
-		var qurl  = "{{ url_for('jsonendpoint.ncbi_egquery', keyword = '') }}" + search_term + "?callback=?"
+		var qurl  = "{{ url_for('jsonendpoint.ncbi_egquery') }}" + "?callback=?"
 		$.getJSON(qurl, args, function(data) {
 				var html_result = ''
 				html_result += "<h3>Matching Results from MolSeek:</h3></br>"

@@ -34,6 +34,17 @@ def getjson():
 		keyterm = form.keyword.data
 		return render_template('getjson.html', subtitle = 'Examples-Using jQuery.getJSON', form = form, keyword = keyterm)
 
+@examples.route('/searchfetch/', methods=['GET', 'POST'])
+def searchfetch():
+	form = AjaxForm(request.form)
+	if request.method == 'POST' and form.validate():
+		keyterm = form.keyword.data
+		return render_template('searchfetch.html', subtitle = 'Examples-Using jQuery.getJSON', form = form, keyword = keyterm)
+	else:
+		form = AjaxForm(keyword = 'star')
+		keyterm = form.keyword.data
+		return render_template('searchfetch.html', subtitle = 'Examples-Using jQuery.getJSON', form = form, keyword = keyterm)
+
 @examples.route('/selectedsearch/', methods=['GET', 'POST'])
 def selectedsearch():
 		return render_template('selectedsearch.html', subtitle = 'Examples-Using jQuery/UI')

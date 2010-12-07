@@ -10,36 +10,29 @@
 
 from flask import request
 from flask import Module
-from flask import render_template
 from biojsonutils.webservices.ncbi.eutils import EUtils
 
-ENTREZ_EMAIL = "sandbox@gmail.com"
 
 jsonendpoint = Module(__name__)
 
-@jsonendpoint.route('/ncbi/<keyword>', methods=['GET'])
-def ncbi_egquery(keyword):
+@jsonendpoint.route('/ncbi/egquery', methods=['GET'])
+def ncbi_egquery():
 	"""
 	Search with NCBI EGQuery and return the JSON results
 	"""
 	if request.args.has_key('callback'):
-		kwargs = {"term": keyword}
-		print "term:",keyword
+		kwargs = {"term": request.args['term']}
+		print "term:", request.args['term']
 		return EUtils.egquery(request.args['callback'], request.args['email'], **kwargs)
-	else:
-		kwargs = {"term": keyword}
-		return EUtils.egquery(None, ENTREZ_EMAIL, **kwargs)
 
-@jsonendpoint.route('/ncbi/esearch/<keyword>', methods=['GET'])
-def ncbi_esearch(keyword):
+@jsonendpoint.route('/ncbi/esearch', methods=['GET'])
+def ncbi_esearch():
 	"""
 	Search with NCBI EGQuery and return the JSON results
 	"""
 	if request.args.has_key('callback'):
-		kwargs = {"term": keyword, "db": request.args['db']}
+		kwargs = {"term": request.args['term'], "db": request.args['db']}
+		print "term:", request.args['term'], "db:", request.args['db']
 		return EUtils.esearch(request.args['callback'], request.args['email'], **kwargs)
-	else:
-		kwargs = {"term": keyword, "db": request.args['db']}
-		return EUtils.esearch(None, ENTREZ_EMAIL, **kwargs)
 
 

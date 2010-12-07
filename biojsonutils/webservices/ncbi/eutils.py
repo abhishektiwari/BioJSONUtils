@@ -52,10 +52,9 @@ def json_response(json_record, callback_id):
 	"""
 	Helper to handle JSON/JSONP calls
 	"""
-	if callback_id == None:
-		return json_record
-	else:
+	if callback_id is not None:
 		response = "%s(%s)" % (callback_id, json_record)
+		print "\n##\n", response, "\n**\n"
 		return response
 
 
