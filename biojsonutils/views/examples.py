@@ -48,3 +48,14 @@ def searchfetch():
 @examples.route('/selectedsearch/', methods=['GET', 'POST'])
 def selectedsearch():
 		return render_template('selectedsearch.html', subtitle = 'Examples-Using jQuery/UI')
+
+@examples.route('/similarsearch/', methods=['GET', 'POST'])
+def similarsearch():
+	form = AjaxForm(request.form)
+	if request.method == 'POST' and form.validate():
+		keyterm = form.keyword.data
+		return render_template('similarsearch.html', subtitle = 'Examples-Using jQuery.getJSON', form = form, keyword = keyterm)
+	else:
+		form = AjaxForm(keyword = 'star')
+		keyterm = form.keyword.data
+		return render_template('similarsearch.html', subtitle = 'Examples-Using jQuery.getJSON', form = form, keyword = keyterm)

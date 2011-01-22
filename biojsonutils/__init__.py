@@ -13,10 +13,10 @@ from biojsonutils.views.main import main
 from biojsonutils.views.examples import examples
 from biojsonutils.views.jsonendpoint import jsonendpoint
 
-app = Flask(__name__)
-app.register_module(main)
-app.register_module(jsonendpoint)
-app.register_module(examples, url_prefix='/examples')
+application = Flask(__name__)
+application.register_module(main)
+application.register_module(jsonendpoint)
+application.register_module(examples, url_prefix='/examples')
 
 
 
