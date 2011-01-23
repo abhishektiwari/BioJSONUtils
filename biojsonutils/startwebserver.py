@@ -10,7 +10,7 @@
 from tornado.wsgi import WSGIContainer
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
-from biojsonutils import app
+from biojsonutils import application
 
 
 class StartServer:
@@ -22,12 +22,12 @@ class StartServer:
 		self.port = port
 	
 	def start_server(self):
-		http_server = HTTPServer(WSGIContainer(app))
+		http_server = HTTPServer(WSGIContainer(application))
 		http_server.listen(self.port)
 		print "Web service started, to stop it use <ctrl-c>"
 		IOLoop.instance().start()
 		print "Web service stopped."
 
 if __name__ == '__main__':
-	tar_instance = StartServer(5001)
+	tar_instance = StartServer(5000)
 	tar_instance.start_server()
